@@ -10,9 +10,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: [],
+      smurfs: []
     };
   }
+  
 
   componentDidMount() {
     axios
@@ -27,9 +28,15 @@ class App extends Component {
       
   }
 
+  addSmurf = (smurfs) => {
+    this.setState({
+      smurfs: smurfs
+    })
+  }
+
   deleteSmurf = id => {
     axios
-      .delete('http://localhost:3333/smurfs'/id)
+      .delete(`http://localhost:3333/smurfs/${id}`)
       .then(res => {
         this.setState({
           smurfs: res.data
@@ -45,19 +52,19 @@ class App extends Component {
     return (
       <div className="App">
         <div className='nav'>
-          <NavLink to='/'>Smurfs</NavLink>
-          <NavLink to='/smurf-form'>Add Smurf to Village</NavLink>
+          <NavLink to='/' style={{ textDecoration: 'none', color: 'white' }}>Smurfs</NavLink>
+          <NavLink to='/smurf-form' style={{ textDecoration: 'none', color: 'white'}}>Add Smurf to Village</NavLink>
         </div>
         <Route 
           path='/smurf-form'
           render={(props) => (
-            <SmurfForm {...props} smurfs={this.state.smurfs}  />
+            <SmurfForm {...props} onSubmit={this.addSmurf}  />
           )}
         />
         <Route 
           exact path = '/'
           render= {(props) => (
-            <Smurfs {...props} smurfs={this.state.smurfs} delete={this.deleteSmurf} />
+            <Smurfs {...props} smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
           )}
         />
       </div>
