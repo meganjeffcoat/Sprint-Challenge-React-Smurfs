@@ -22,3 +22,17 @@ h1 {
   text-shadow: 2px slategray;
   font-size: 3rem;
 }
+
+.smurf-char {
+  border: 2px dashed white;
+  margin: 2%;
+  padding: 3% 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.SmurfForm {
+  background-color: #1aa3ff;
+}
+
+
