@@ -1,3 +1,38 @@
 .App {
   text-align: center;
+  background-color: #1aa3ff;
 }
+
+.nav {
+  margin: 2%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.Smurfs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  text-shadow: 2px slategray;
+  font-size: 3rem;
+}
+
+.smurf-char {
+  border: 2px dashed white;
+  margin: 2%;
+  padding: 3% 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.SmurfForm {
+  background-color: #1aa3ff;
+}
+
+
